@@ -1,11 +1,65 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Spring Security Example</title>
+    <meta charset="UTF-8">
+    <title>User page</title>
+
+
 </head>
 <body>
-<h1>User, welcome spring boot security page!</h1>
+<a  th:href="@{/logout}">Logout</span></a>
+                <h2 class="text-3">User information-page</h2>
+                <h5 class="py-3 px-3 my-0 border">About user</h5>
+                <table class = "table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <th scope="col" class="col-md-1"> ID</th>
+                        <th scope="col"> Name</th>
+                        <th scope="col"> Age </th>
+                        <th scope="col"> Email </th>
+                        <th scope="col"> Role </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td th:text = "${currentUser.id}"></td>
+                        <td th:text = "${currentUser.name}"></td>
+                        <td th:text = "${currentUser.age}"></td>
+                        <td th:text = "${currentUser.email}"></td>
+                        <td>
+                        <span th:each="role : ${currentUser.roles}">
+                        <span th:text="${role}"></span>
+                        </span>
+                        </td>
 
+                    </tr>
+                    </tbody>
+                </table>
+
+
+<!-- Sidebar -->
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

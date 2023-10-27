@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:id="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin panel</title>
+</head>
+<body>
+                <form th:method="POST" th:action="@{/admin/new}" th:object="${newUser}"  id="form1">
+                    <div class="form-group text-3">
+                        <label for="input1">Name</label>
+                        <input type="text" class="form-control" th:field="*{name}"  id="input1" >
+                    </div>
+                    <div class="form-group text-3">
+                        <label for="input2">Age</label>
+                        <input type="text" class="form-control" th:field="*{age}" id="input2">
+                    </div>
+                    <div class="form-group text-3">
+                        <label for="input3">Email</label>
+                        <input type="email" class="form-control" th:field="*{email}" id="input3">
+                    </div>
+                    <div class="form-group text-3">
+                        <label for="input4">Password</label>
+                        <input type="password" class="form-control" th:field="*{password}" id="input4">
+                    </div>
+                    <p class="text-3">Role</p>
+                    <div class="form-group  text-left" th:each="role : ${listRoles}">
+                        <input type="checkbox" th:text="${role}" th:field="*{roles}" th:value="${role.id}">
+                    </div>
+
+                    <button type="submit" form="form1" class="btn btn-success">Add new user</button>
+                </form>
+
+
+</body>
+</html>
